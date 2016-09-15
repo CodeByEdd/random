@@ -1,4 +1,5 @@
 import pandas as pd
+import matplotlib.pyplot as plt
 
 
 def test():
@@ -11,8 +12,8 @@ def test():
     strip any NaN values in the first join, which means weekends and public holidays are stripped from the output.
     '''
 
-    start_date = '2010-01-22'
-    end_date = '2010-01-26'
+    start_date = '2011-01-01'
+    end_date = '2016-01-01'
     dates = pd.date_range(start_date, end_date)
     df = pd.DataFrame(index=dates)
 
@@ -43,7 +44,15 @@ def test():
         df_temp = df_temp.rename(columns={'Adj Close': symbol})
         df = df.join(df_temp)
 
-    print(df)
+    '''
+    Plot this data to a line graph, set up labels and titles
+    '''
+
+    df.plot()
+    plt.xlabel("Date")
+    plt.ylabel("Price in USD")
+    plt.title("A comparison of Adjusted Close prices for four stocks")
+    plt.show()
 
 if __name__ == '__main__':
     test()
