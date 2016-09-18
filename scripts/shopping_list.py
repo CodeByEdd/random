@@ -1,19 +1,29 @@
-'''Basic Shopping List script
+"""Basic Shopping List script
 A basic CLI shopping list application.
 
-Created: 2016
+Created: 18th September 2016
 Author: Edward Haigh
-'''
+"""
 
 shopping_list = []
 
 
 def show_help():
+    """Prints two lines containing instructions to use app"""
     print("\nSeparate each item with a comma.")
     print("Type 'DONE' to quit, 'SHOW' to see the current list, or HELP to bring up this message.'")
 
 
 def show_list():
+    """Prints each item in the list with an index starting at 1
+
+    >>> shopping_list = ['test1', 'test2', 3]
+    >>> show_list()
+    1: test1
+    2: test2
+    3: 3
+
+    """
     count = 1
     for item in shopping_list:
         print("{}: {}".format(count, item))
